@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+logs/*.log
+logs/*.jsonl
+src/__pycache__/
+training/__pycache__/
+
+node_modules/
+dist/
+build/
+.env
+*.pem
+*.key
+*.o
+*.pcap
+.DS_Store

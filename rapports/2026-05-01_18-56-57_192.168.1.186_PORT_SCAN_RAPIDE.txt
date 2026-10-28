@@ -1,0 +1,12 @@
+- timestamp: 2026-05-01T20:56:49
+- src_ip: 192.168.1.186
+- type: PORT_SCAN_RAPIDE
+- severity: high
+- score: -0.8129
+- detail: 1000 ports scannes, w5_syn=1000, w60_rst=6
+
+--- RESUME IA (gemma4:e2b) ---
+
+1. Resume : Détection d'un scan rapide du réseau depuis l'IP 192.168.1.186.
+2. Criticite : Elevée
+3. Action : Bloquer l'IP 192.168.1.186.

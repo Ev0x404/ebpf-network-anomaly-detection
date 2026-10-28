@@ -1,0 +1,12 @@
+- timestamp: 2026-05-01T21:46:48
+- src_ip: 192.168.1.186
+- type: HTTPS_FLOOD_LENT_SUSPECT
+- severity: medium
+- score: -0.6864
+- detail: w300_https=2452, w60_https=2452, ssh300=0, http300=0, https_share300=1.00, syn_ratio=0.0
+
+--- RESUME IA (gemma4:e2b) ---
+
+1. Resume : Détection d'un volume HTTPS inhabituel provenant de l'adresse IP 192.168.1.186.
+2. Criticite : moyenne
+3. Action : Analyser l'utilisateur associé à l'IP et surveiller l'activité.

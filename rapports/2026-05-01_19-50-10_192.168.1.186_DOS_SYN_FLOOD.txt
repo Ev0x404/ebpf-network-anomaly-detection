@@ -1,0 +1,12 @@
+- timestamp: 2026-05-01T21:50:04
+- src_ip: 192.168.1.186
+- type: DOS_SYN_FLOOD
+- severity: high
+- score: -0.8333
+- detail: flood brut : w5_conx=144875, w5_syn=26529, port(s)=0
+
+--- RESUME IA (gemma4:e2b) ---
+
+1. Resume : Détection d'une attaque par inondation SYN depuis l'adresse IP 192.168.1.186.
+2. Criticite : Elevee
+3. Action : Bloquer l'IP 192.168.1.186.

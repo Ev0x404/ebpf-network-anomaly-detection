@@ -1,0 +1,98 @@
+{
+  "name": "ebpf_alert_receiver",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ebpf-alert",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {"name": "src_ip", "value": "={{$json.body.src_ip || $json.src_ip}}", "type": "string"},
+            {"name": "type", "value": "={{$json.body.type || $json.type}}", "type": "string"},
+            {"name": "severity", "value": "={{$json.body.severity || $json.severity}}", "type": "string"},
+            {"name": "score", "value": "={{$json.body.score || $json.score}}", "type": "string"},
+            {"name": "detail", "value": "={{$json.body.detail || $json.detail}}", "type": "string"},
+            {"name": "timestamp", "value": "={{$json.body.timestamp || $json.timestamp}}", "type": "string"}
+          ]
+        },
+        "options": {}
+      },
+      "id": "2",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {"name": "summary", "value": "=Alerte reseau detectee | type={{$json[\"type\"]}} | ip={{$json[\"src_ip\"]}} | gravite={{$json[\"severity\"]}} | score={{$json[\"score\"]}} | detail={{$json[\"detail\"]}} | timestamp={{$json[\"timestamp\"]}}", "type": "string"}
+          ]
+        },
+        "options": {"includeOtherFields": true}
+      },
+      "id": "3",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [760, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://ollama:11434/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"model\": \"gemma3:4b\", \"prompt\": \"Tu es un analyste SOC. Reponds uniquement en francais clair, factuel et professionnel. N'invente aucune information absente de l'alerte. Si une alerte SYN flood provient d'une seule IP source, parle de DoS et non de DDoS. Utilise exactement ce format sur 3 lignes :\\n1. Resume : <une phrase courte>\\n2. Criticite : <faible|moyenne|elevee>\\n3. Action : <une action courte et concrete>\\n\\nAlerte : \" + $json[\"summary\"], \"stream\": false } }}",
+        "options": {}
+      },
+      "id": "4",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1030, 300]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {"name": "status", "value": "ok", "type": "string"},
+            {"name": "message", "value": "alerte recue", "type": "string"},
+            {"name": "summary", "value": "={{$json.response}}", "type": "string"}
+          ]
+        },
+        "options": {}
+      },
+      "id": "5",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1280, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {"main": [[{"node": "Edit Fields", "type": "main", "index": 0}]]},
+    "Edit Fields": {"main": [[{"node": "Edit Fields1", "type": "main", "index": 0}]]},
+    "Edit Fields1": {"main": [[{"node": "HTTP Request", "type": "main", "index": 0}]]},
+    "HTTP Request": {"main": [[{"node": "Edit Fields2", "type": "main", "index": 0}]]}
+  },
+  "settings": {},
+  "pinData": {},
+  "active": false,
+  "versionId": "ebpf-bootstrap-workflow-v1"
+}

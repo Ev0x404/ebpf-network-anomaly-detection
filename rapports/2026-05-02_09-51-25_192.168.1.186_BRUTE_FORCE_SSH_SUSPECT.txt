@@ -1,0 +1,12 @@
+- timestamp: 2026-05-02T11:51:21
+- src_ip: 192.168.1.186
+- type: BRUTE_FORCE_SSH_SUSPECT
+- severity: high
+- score: -0.7375
+- detail: fast-path ssh : w5_ssh=163, w60_ssh=175, w5_syn=17, http5=0, https5=0, score=-0.7375, seuil=-0.6983
+
+--- RESUME IA (gemma4:e2b) ---
+
+1. Resume : Détection d'une tentative de force brute sur SSH depuis l'IP 192.168.1.186.
+2. Criticite : Elevée
+3. Action : Analyser l'activité SSH et bloquer l'IP suspect.

@@ -1,0 +1,12 @@
+- timestamp: 2026-05-01T18:54:15
+- src_ip: 192.168.1.186
+- type: PORT_SCAN_LENT
+- severity: medium
+- score: -0.8582
+- detail: w300: 1000 ports, w5: 0 ports
+
+--- RESUME IA (gemma4:e2b) ---
+
+1. Resume : Détection de scan réseau lent provenant de l'adresse IP 192.168.1.186.
+2. Criticite : moyenne
+3. Action : Surveiller l'IP 192.168.1.186 et les activités réseau.

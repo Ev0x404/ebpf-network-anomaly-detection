@@ -1,0 +1,12 @@
+- timestamp: 2026-05-02T16:00:41
+- src_ip: 192.168.1.186
+- type: DNS_TUNNELING_SUSPECT
+- severity: high
+- score: -0.6597
+- detail: fast-path dns tunneling : w60_dns_pkt=89, w60_dns_bytes=11392, large_ratio=1.00, avg_size=128.0, score=-0.6597, seuil=-0.6983
+
+--- RESUME IA (gemma4:e2b) ---
+
+1. Resume : Détection d'un tunneling DNS suspect sur l'IP 192.168.1.186.
+2. Criticite : Elevée
+3. Action : Analyser le trafic DNS et potentiellement bloquer l'IP.

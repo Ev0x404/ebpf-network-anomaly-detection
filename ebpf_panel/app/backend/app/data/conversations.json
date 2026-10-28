@@ -1,0 +1,30 @@
+{
+  "1af0a26b-2c4f-4113-8bf0-8d2b3c039092": {
+    "id": "1af0a26b-2c4f-4113-8bf0-8d2b3c039092",
+    "title": "bonjour",
+    "created_at": 1777649054.7048311,
+    "updated_at": 1777664709.0121615,
+    "messages": [
+      {
+        "role": "user",
+        "content": "bonjour",
+        "ts": 1777649110.4116757
+      },
+      {
+        "role": "assistant",
+        "content": "Bonjour ! Comment puis-je vous aider aujourd'hui ?\n",
+        "ts": 1777649110.4116757
+      },
+      {
+        "role": "user",
+        "content": "test",
+        "ts": 1777664709.0121615
+      },
+      {
+        "role": "assistant",
+        "content": "Assistant: Test reçu ! Tout fonctionne correctement. Y a-t-il autre chose que je puisse faire pour vous ?\n",
+        "ts": 1777664709.0121615
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+- timestamp: 2026-05-01T22:01:46
+- src_ip: 192.168.1.186
+- type: HTTPS_FLOOD_SUSPECT
+- severity: high
+- score: -0.7776
+- detail: w60_https=64839, ssh60=0, http60=0, https_share60=1.00, syn_ratio=0.092
+
+--- RESUME IA (gemma4:e2b) ---
+
+1. Resume : Détection d'une forte activité HTTPS suspecte depuis l'IP 192.168.1.186.
+2. Criticite : Elevée
+3. Action : Analyser l'IP et vérifier l'activité réseau.
